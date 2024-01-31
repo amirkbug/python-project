@@ -26,18 +26,15 @@ def clear():
     
    
 def delete():
-    index = listbox_.curselection()
     res = askquestion('delete','are you sure?!!')
-    if res == 'yes':
-        listbox_.delete(index)
+    if res == True:
+        listbox_.delete(listbox_.curselection())
     clear()
 
 
 def fetch():
     clear()
-    index2 = listbox_.curselection()
-    data = listbox_.get(index2)
-    item = data.split(',')
+    item = listbox_.get(listbox_.curselection()).split(',')
     Entry_name.insert(0,item[0])
     Entry_lastname.insert(0,item[1])
     Entry_city.insert(0,item[2])
