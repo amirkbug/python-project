@@ -1,20 +1,24 @@
 from tkinter import*
 from tkinter.messagebox import askquestion
-
+import makedtabase
 # window
 window = Tk()
+db = makedtabase.database('D:/python project/database/contacts.db')
 window.title('first project')
 window.geometry('600x300')
 window.resizable(0,0)
 # function
 
 def insert():
+    inserttocontacts()
     gettell = int(Entry_tell.get())
     getcity = Entry_city.get()
     getlastname = Entry_lastname.get()
     getname = Entry_name.get()
     listbox_.insert(END,f'{getname},{getlastname},{getcity},{gettell}')
     clear()
+    
+
 
 def clear():
     Entry_name.delete(0,END)
@@ -23,7 +27,9 @@ def clear():
     Entry_tell.delete(0,END)
     Entry_name.focus_set()
     
-    
+def inserttocontacts():
+    db.insertcontact( Entry_name.get() , Entry_lastname.get() , Entry_tell.get() , Entry_city.get() )
+     
    
 def delete():
     res = askquestion('delete','are you sure?!!')
