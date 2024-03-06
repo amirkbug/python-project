@@ -23,3 +23,14 @@ class database():
     def remove(self,id):
         self.cur.execute('DELETE FROM contactss WHERE id = ?',(id,))
         self.con.commit()
+
+
+    def update(self,id,name,lastname,city,tell):
+        self.cur.execute("""UPDATE contactss SET name = ?, lastname = ? , city = ? , tell = ? WHERE id = ?""",(name,lastname,city,tell,id))
+        self.con.commit()
+
+
+    def search(self,search_variable):
+        self.cur.execute('SELECT * FROM contactss WHERE id = ? or name = ? or lastname = ? or city = ? or tell = ?',(search_variable,search_variable,search_variable,search_variable,search_variable))
+        search_resault = self.cur.fetchall()
+        return search_resault
