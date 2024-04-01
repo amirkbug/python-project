@@ -83,7 +83,11 @@ label_city = Label(window,text= 'city:')
 label_city.place(x= 20 , y= 70)
 
 label_tell = Label(window,text= 'tell:')
-label_tell.place(x= 300 , y= 70)
+label_tell.place(x= 320 , y= 70)
+
+label_search = Label(window,text='(search anything)')
+label_search.place(x=480,y=260)
+
 
 # buttoms
 buttton_insert = Button(window,text='insert',width=10,command=add_to_listbox)
@@ -115,20 +119,20 @@ Entry_name.place(x=70,y=10)
 Entry_lastname = Entry(window)
 Entry_lastname.place(x=370,y=10)
 
-
 Entry_city = Entry(window)
 Entry_city.place(x=70,y=70)
 
 
 Entry_tell = Entry(window)
-Entry_tell.place(x=350,y=70)
+Entry_tell.place(x=370,y=70)
 
 
 Entry_search = Entry(window,width=10)
 Entry_search.place(x=490,y=240)
+
 # listbox
-listbox_ = Listbox(window,width=40,height=9,font='arial 11')
-listbox_.place(x=80,y=100)
+listbox_ = Listbox(window,width=40,height=9,font='arial 10')
+listbox_.place(x=70,y=100)
 
 listbox_.bind('<<ListboxSelect>>',selecteditem)
 
